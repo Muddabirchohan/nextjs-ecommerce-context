@@ -1,3 +1,6 @@
+$color-primary: blueviolet;
+
+
 .container {
   padding: 0 2rem;
 }
@@ -57,7 +60,7 @@
 }
 
 .code {
-  background: #fafafa;
+  background: $color-primary;
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
