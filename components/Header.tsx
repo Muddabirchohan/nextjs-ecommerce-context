@@ -1,19 +1,21 @@
+import Link from "next/link";
 import React, { Component } from "react";
-
+import Image from "next/image";
+import Logo from "./../public/logo.jpg";
 
 const Header = () => {
+  const src = Logo;
+
   return (
-    <div>
+    <div className="header-base">
+      {/* <div className="logo">
+        <Image src={src} width={130} height={130} />
+      </div> */}
       <div className="header">
-        <a href="#default" className="logo">
-          CompanyLogo
-        </a>
-        <div className="header-right">
-          <a className="active" href="#home">
-            Home
-          </a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
+        <div>
+          <Link href="/products"> Products </Link>
+          <Link href="/cart"> Cart </Link>
+          <Link href="/wishlist"> Wishlist </Link>
         </div>
       </div>
     </div>

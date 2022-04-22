@@ -7,29 +7,41 @@ const ProductContextProvider =  ({ children }) => {
 
     const [products,setProducts] = useState([])
     const [loader,setLoader] = useState(false)
+    const [errMsg,setErrMsg] = useState("")
+
 
 
     useEffect(()=>{
         setLoader(true)
+try{
+    fetch('https://fakestoreapi.com/products')
+    .then(res=>res.json())
+    .then(json=> {
+        setProducts(json) 
+        setLoader(false)
+        setErrMsg("")
+    })
+    .catch(e =>  {
 
-        fetch('https://fakestoreapi.com/products')
-        .then(res=>res.json())
-        .then(json=> {
-            setProducts(json) 
-            setLoader(false)
+        setProducts([])
+        setLoader(false)
+        setErrMsg(e?.message)
 
-        })
-        .catch(err =>  {
-            setProducts([])
-            setLoader(false)
+    })
+}catch(e){
+    setLoader(false)
+    setErrMsg(e?.message)
 
-        })
+
+}
+
     },[])
 
 
     const contextValues = {
         products,
-        loader
+        loader,
+        errMsg
     }
 
 

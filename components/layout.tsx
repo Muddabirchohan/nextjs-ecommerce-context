@@ -1,20 +1,19 @@
-import Head from 'next/head'
-import Header from './Header'
+import Head from "next/head";
+import Footer from "./footer";
+import Header from "./Header";
+import SliderCustom from "./slider";
 
 export default function Layout({ children }) {
+  console.log("children", children);
+
   return (
     <>
+      <SliderCustom />
+      <Header />
 
-      <Header/>
+      <main>{children}</main>
 
-      <main>
-
-
-        {children}
-      </main>
-      <footer>
-          
-    </footer> 
+      <Footer />
     </>
-  )
+  );
 }
